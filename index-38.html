@@ -1,0 +1,197 @@
+<!doctype html><html lang="ar" dir="rtl"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no"><title>GamePedia</title><style>
+*{box-sizing:border-box}html,body{margin:0;width:100%;max-width:100%;overflow-x:hidden}body{font-family:Arial,sans-serif;background:#f8f9fa;color:#202122;overflow-x:hidden}main{min-width:0}.article,.hero,section{max-width:100%;overflow:hidden}header{position:sticky;top:0;z-index:10;background:#fff;border-bottom:1px solid #c8ccd1;box-shadow:0 2px 8px #0001}.bar{max-width:1100px;margin:auto;padding:12px 15px;display:flex;align-items:center;gap:14px}.logo{font:bold 27px Georgia;white-space:nowrap;color:#202122}.logo b{color:#36c}.search{display:flex;flex:1;max-width:620px;min-width:260px}.search input{width:100%;min-width:0;padding:10px 13px;border:1px solid #72777d;border-radius:5px 0 0 5px;font-size:15px;outline:none}.search input:focus{border-color:#36c;box-shadow:0 0 0 2px #36c2}.search button{padding:0 16px;border:1px solid #72777d;background:#eaecf0;cursor:pointer;font-size:15px;border-radius:0 5px 5px 0}.search button:hover{background:#d9dfe8}.layout{max-width:1100px;margin:24px auto;display:grid;grid-template-columns:205px 1fr;gap:25px;padding:0 15px}aside{background:#fff;border:1px solid #c8ccd1;border-radius:8px;padding:12px;position:sticky;top:78px;height:max-content}aside h3{margin:5px 8px 10px;font-size:16px}aside a{display:block;text-decoration:none;color:#36c;padding:9px;border-radius:6px;cursor:pointer}aside a[href]{pointer-events:none} .cover{pointer-events:none}aside a:hover{background:#eaecf0}.hero,.article,.card{background:#fff;border:1px solid #a2a9b1;border-radius:8px}.hero{padding:22px}.hero h1,.article h1{font-family:Georgia;margin-top:0}.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:18px}.stat{background:#eaecf0;padding:13px;border-radius:5px}.stat b{display:block;font-size:20px}.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}.card{padding:16px;cursor:pointer;transition:.15s}.card:hover{transform:translateY(-2px);box-shadow:0 4px 12px #0002}.card h3{margin:0 0 8px;color:#36c;font:19px Georgia}.tag{display:inline-block;background:#eef3ff;border:1px solid #c8d6ff;border-radius:12px;padding:3px 8px;font-size:12px}.cover{width:100%;max-height:380px;object-fit:cover;border:1px solid #a2a9b1;border-radius:5px;margin-bottom:15px}.info{background:#f8f9fa;border:1px solid #a2a9b1;margin:15px 0;padding:0}.info h2{margin:0;background:#eaecf0;padding:10px;font:20px Georgia}.row{padding:9px;border-top:1px solid #c8ccd1}.row b{display:inline-block;min-width:105px}.series{line-height:1.9;padding-right:25px}.muted{color:#54595d;margin:8px 0 12px}.series li{margin:7px 0;padding:7px 9px;background:#fff;border:1px solid #eaecf0;border-radius:6px}.back{display:inline-block;margin-top:18px;color:#36c;cursor:pointer}.notice{background:#fffbe6;border:1px solid #e6d89a;padding:11px;border-radius:5px;margin-bottom:15px}.empty{padding:25px;text-align:center;background:#fff;border:1px solid #c8ccd1;border-radius:8px}.pager{display:flex;gap:8px;justify-content:center;margin:20px}.pager button{padding:8px 13px;cursor:pointer;border:1px solid #a2a9b1;background:#fff;border-radius:5px}.pager button:hover{background:#eaecf0}@media(max-width:700px){.bar{gap:8px;padding:9px 10px;flex-wrap:nowrap}.logo{font-size:20px;flex:0 0 auto}.search{display:flex;flex:1;min-width:0;max-width:none}.search input{font-size:16px;padding:9px 10px;min-width:0}.search button{padding:0 10px;font-size:14px;white-space:nowrap}.bar select{max-width:82px;font-size:12px}.layout{display:block;margin-top:12px;padding:0 10px}.grid{grid-template-columns:1fr}.stats{grid-template-columns:1fr 1fr}.hero,.article{padding:16px}.cover{max-height:260px;object-fit:contain}.card{padding:13px}.card h3{font-size:17px}h1{font-size:24px}h2{font-size:20px}}
+
+.platforms{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px}.platform{display:inline-block;padding:7px 10px;border:1px solid #d0d7de;border-radius:999px;background:#f6f8fa;font-size:14px}.platform.unknown{border-style:dashed;color:#666}.platforms.large .platform{font-size:15px;padding:9px 12px}
+</style></head><body><header><div class="bar"><div class="logo">Game<b>Pedia</b></div><div class="search"><input id="q" placeholder="" autocomplete="off"><button id="searchBtn" type="button"></button></div><select id="lang" aria-label="Language"><option value="ar">العربية</option><option value="en">English</option><option value="fr">Français</option><option value="es">Español</option><option value="de">Deutsch</option><option value="it">Italiano</option><option value="pt">Português</option><option value="ru">Русский</option><option value="tr">Türkçe</option><option value="nl">Nederlands</option><option value="pl">Polski</option><option value="sv">Svenska</option><option value="da">Dansk</option><option value="no">Norsk</option><option value="fi">Suomi</option><option value="cs">Čeština</option><option value="el">Ελληνικά</option><option value="id">Bahasa Indonesia</option><option value="vi">Tiếng Việt</option><option value="th">ไทย</option><option value="hi">हिन्दी</option><option value="uk">Українська</option><option value="ja">日本語</option><option value="ko">한국어</option><option value="zh">中文</option></select></div></header><div class="layout"><aside><h3 id="navTitle"></h3><a data-action="home" id="navHome"></a><a data-action="catalog" id="navAll"></a><a data-action="random" id="navRandom"></a><hr><h3 id="catTitle"></h3><a data-genre="Action" id="catAction"></a><a data-genre="RPG" id="catRpg"></a><a data-genre="Adventure" id="catAdv"></a><a data-genre="Sports" id="catSports"></a></aside><main id="app"></main></div><script>
+const realGames=[
+{name:'Minecraft',genre:'Sandbox / Survival',developer:'Mojang Studios',lead:'Markus Persson',birth:'1979-06-01',publisher:'Xbox Game Studios',year:'2011',platforms:'PC, PlayStation, Xbox, Switch, Mobile',engine:'Bedrock / Java technology',image:'https://upload.wikimedia.org/wikipedia/en/5/51/Minecraft_cover.png',story:'لعبة عالم مفتوح تتيح للاعب جمع الموارد وبناء المنشآت والاستكشاف والبقاء في عالم مكوّن من كتل.',gameplay:'البناء، الاستكشاف، صناعة الأدوات، البقاء، واللعب الجماعي.'},
+{name:'Grand Theft Auto V',genre:'Action / Open World',developer:'Rockstar North',lead:'Leslie Benzies',birth:'1971-01-20',publisher:'Rockstar Games',year:'2013',platforms:'PC, PlayStation, Xbox',engine:'RAGE',image:'https://upload.wikimedia.org/wikipedia/en/a/a5/Grand_Theft_Auto_V.png',story:'تدور أحداث اللعبة في مدينة Los Santos ومقاطعة Blaine County حول ثلاثة أبطال تتقاطع حياتهم في سلسلة من الجرائم والمغامرات.',gameplay:'قيادة، إطلاق نار، استكشاف عالم مفتوح، مهام وقصة فردية، إضافة إلى GTA Online.'},
+{name:'The Witcher 3: Wild Hunt',genre:'RPG / Open World',developer:'CD Projekt Red',lead:'Konrad Tomaszkiewicz',birth:'1979-01-01',publisher:'CD Projekt',year:'2015',platforms:'PC, PlayStation, Xbox, Switch',engine:'REDengine 3',image:'https://upload.wikimedia.org/wikipedia/en/0/0c/Witcher_3_cover_art.jpg',story:'يتقمص اللاعب دور Geralt of Rivia في رحلة للعثور على Ciri وسط حرب وصراعات سياسية ووحوش.',gameplay:'قتال بالسيف والسحر، استكشاف، مهام رئيسية وجانبية، قرارات تؤثر في الأحداث.'},
+{name:'Red Dead Redemption 2',genre:'Action / Adventure',developer:'Rockstar Studios',lead:'Rob Nelson',birth:'',publisher:'Rockstar Games',year:'2018',platforms:'PC, PlayStation, Xbox',engine:'RAGE',image:'https://upload.wikimedia.org/wikipedia/en/4/44/Red_Dead_Redemption_II.jpg',story:'قصة Arthur Morgan وعصابة Van der Linde في نهاية عصر الغرب الأمريكي.',gameplay:'عالم مفتوح، إطلاق نار، ركوب الخيل، صيد، استكشاف ومهام قصة.'},
+{name:'Fortnite',genre:'Battle Royale / Shooter',developer:'Epic Games',lead:'Donald Mustard',birth:'1976-08-19',publisher:'Epic Games',year:'2017',platforms:'PC, PlayStation, Xbox, Switch, Mobile',engine:'Unreal Engine',image:'https://upload.wikimedia.org/wikipedia/en/0/09/Fortnite_cover.jpg',story:'تجربة تنافسية متعددة اللاعبين تتغير باستمرار عبر المواسم والأحداث.',gameplay:'Battle Royale، بناء، إطلاق نار، فعاليات وتعاونات ومحتوى موسمي.'},
+{name:'Roblox',genre:'Platform / Sandbox',developer:'Roblox Corporation',lead:'David Baszucki',birth:'1963-01-20',publisher:'Roblox Corporation',year:'2006',platforms:'PC, Xbox, Mobile, PlayStation',engine:'Roblox Engine',image:'https://upload.wikimedia.org/wikipedia/commons/7/7e/Roblox_Logo_2022.jpg',story:'منصة ضخمة لإنشاء وتجربة ألعاب وتجارب يصنعها المستخدمون.',gameplay:'آلاف التجارب، اللعب الجماعي، إنشاء الألعاب والعوالم والتفاعل الاجتماعي.'},
+{name:'Among Us',genre:'Party / Social Deduction',developer:'Innersloth',lead:'Marcus Bromander',birth:'1990-09-01',publisher:'Innersloth',year:'2018',platforms:'PC, Mobile, Switch, PlayStation, Xbox',engine:'Unity',image:'https://upload.wikimedia.org/wikipedia/en/9/9a/Among_Us_cover_art.jpg',story:'يحاول أفراد الطاقم إنجاز المهام بينما يتخفى بينهم Impostors يحاولون التخلص منهم.',gameplay:'مهام، نقاش وتصويت، خداع واستنتاج اجتماعي.'},
+{name:'Terraria',genre:'Sandbox / Action',developer:'Re-Logic',lead:'Andrew Spinks',birth:'',publisher:'505 Games',year:'2011',platforms:'PC, PlayStation, Xbox, Switch, Mobile',engine:'XNA / platform technologies',image:'https://upload.wikimedia.org/wikipedia/en/1/1a/Terraria_Steam_artwork.jpg',story:'عالم ثنائي الأبعاد مليء بالاستكشاف والموارد والأعداء والزعماء.',gameplay:'تعدين، صناعة، بناء، استكشاف، قتال وزعماء.'},
+{name:'Elden Ring',genre:'Action RPG',developer:'FromSoftware',lead:'Hidetaka Miyazaki',birth:'1974-01-01',publisher:'Bandai Namco Entertainment',year:'2022',platforms:'PC, PlayStation, Xbox',engine:'Proprietary engine',image:'https://upload.wikimedia.org/wikipedia/en/b/b9/Elden_Ring_Box_art.jpg',story:'رحلة في The Lands Between لاستعادة Great Runes والسعي إلى لقب Elden Lord.',gameplay:'قتال صعب، استكشاف عالم مفتوح، أسلحة، سحر، زعماء وتخصيص شخصية.'},
+{name:'Hades',genre:'Action / Roguelike',developer:'Supergiant Games',lead:'Greg Kasavin',birth:'1977-01-01',publisher:'Supergiant Games',year:'2020',platforms:'PC, Switch, PlayStation, Xbox',engine:'Proprietary technology',image:'https://upload.wikimedia.org/wikipedia/en/c/cc/Hades_cover_art.jpg',story:'يحاول Zagreus، ابن Hades، الهروب من العالم السفلي والوصول إلى العالم الخارجي.',gameplay:'قتال سريع، غرف متغيرة، قدرات مؤقتة وتطور مستمر للقصة.'},
+ {name:'Dark Souls',genre:'Action RPG / Soulslike',developer:'FromSoftware',lead:'Hidetaka Miyazaki',birth:'1974-01-01',publisher:'Bandai Namco Entertainment',year:'2011',platforms:'PC, PlayStation 3, Xbox 360, PlayStation 4, Xbox One, Switch',engine:'Proprietary engine',image:'https://upload.wikimedia.org/wikipedia/en/8/8d/Dark_Souls_Cover_Art.jpg',story:'لعبة تقمص أدوار وأكشن تدور في عالم مظلم مليء بالأعداء والزعماء والاستكشاف.',gameplay:'قتال يعتمد على التوقيت، الاستكشاف، تطوير الشخصية، الأسلحة، السحر والزعماء.'}
+];
+
+const seriesMap={
+'Minecraft':['Minecraft','Minecraft Dungeons','Minecraft Legends'],
+'Grand Theft Auto V':['Grand Theft Auto III','Grand Theft Auto: Vice City','Grand Theft Auto: San Andreas','Grand Theft Auto IV','Grand Theft Auto V','Grand Theft Auto VI'],
+'The Witcher 3: Wild Hunt':['The Witcher','The Witcher 2: Assassins of Kings','The Witcher 3: Wild Hunt'],
+'Red Dead Redemption 2':['Red Dead Revolver','Red Dead Redemption','Red Dead Redemption 2'],
+'Fortnite':['Fortnite: Save the World','Fortnite Battle Royale','Fortnite Creative'],
+'Roblox':['Roblox'],
+'Among Us':['Among Us'],
+'Terraria':['Terraria'],
+'Elden Ring':['Elden Ring','Elden Ring: Shadow of the Erdtree'],
+'Hades':['Hades','Hades II'],
+'Dark Souls':['Demon\'s Souls','Dark Souls','Dark Souls II','Dark Souls III']
+};
+const aliases={
+'minecraft':['minecraft','mine craft','minecrft','minecraftt'],
+'grand theft auto v':['gta v','gta 5','gta5','grand theft auto 5','grandtheftautov'],
+'the witcher 3: wild hunt':['witcher 3','witcher3','the witcher 3','witcher'],
+'red dead redemption 2':['rdr2','red dead 2','red dead redemption 2'],
+'fortnite':['fortnite','fortnite battle royale'],
+'roblox':['roblox'],
+'among us':['amongus','among us'],
+'terraria':['terraria'],
+'elden ring':['eldenring','elden ring'],
+'hades':['hades'],
+'dark souls':['darksouls','dark soul','dark solus','dark souls 1','ds1']
+};
+function enrichGames(){
+  for(const g of realGames){
+    g.series=seriesMap[g.name]||[g.name];
+    g.modes=g.name==='Minecraft'?'Single-player, Multiplayer, Co-op':g.name==='Fortnite'?'Multiplayer':g.name==='Roblox'?'Multiplayer / User-created experiences':'Single-player, Multiplayer / Co-op';
+    g.rating=g.name==='Dark Souls'?'Teen / PEGI 16':g.name==='Minecraft'?'Everyone / PEGI 7':'Teen / PEGI 12–16 (varies by region)';
+    const finance={
+'Minecraft':['95 مليون دولار','أكثر من 1.5 مليار دولار (تقديرات/إيرادات منشورة تختلف حسب الفترة)'],
+'Grand Theft Auto V':['نحو 265 مليون دولار','أكثر من 8.5 مليار دولار (إيرادات مُعلنة/تقديرات متداولة حتى 2024)'],
+'The Witcher 3: Wild Hunt':['نحو 81 مليون دولار','أكثر من 500 مليون دولار (إيرادات مُعلنة/تقديرات)'],
+'Red Dead Redemption 2':['نحو 370 مليون دولار','أكثر من 725 مليون دولار في أول 3 أيام؛ إجمالي لاحق غير معلن بدقة'],
+'Fortnite':['غير معلن بدقة','إيرادات سنوية بمليارات الدولارات؛ الرقم الإجمالي الدقيق غير معلن'],
+'Roblox':['غير معلن كتكلفة لعبة واحدة','إيرادات الشركة/المنصة بالمليارات؛ لا يوجد رقم إجمالي دقيق للعبة نفسها'],
+'Among Us':['نحو 500 ألف دولار تقريباً','غير معلن بدقة'],
+'Terraria':['غير معلن بدقة','غير معلن بدقة'],
+'Elden Ring':['نحو 200 مليون دولار (تقديرات)','غير معلن بدقة؛ المبيعات تجاوزت 30 مليون نسخة'],
+'Hades':['غير معلن بدقة','غير معلن بدقة'],
+'Dark Souls':['غير معلن بدقة','غير معلن بدقة']
+};
+const f=finance[g.name]||['غير متوفر بشكل موثوق','غير متوفر بشكل موثوق'];
+g.budget=f[0]; g.revenue=f[1];
+g.platformNote='قائمة المنصات مبنية على الإصدارات المعروفة؛ قد تختلف بعض النسخ حسب المنطقة أو إعادة الإصدار.';
+  g.status='الأرقام المالية قد تكون تقديرية عندما لا تنشر الشركة الرقم الرسمي.';
+  }
+}
+enrichGames();
+
+const genres=['Action','RPG','Adventure','Sports','Racing','Strategy','Simulation','Puzzle','Horror','Shooter'];
+const games=[...realGames]; for(let i=11;i<=25000;i++) games.push({name:`Game Archive #${String(i).padStart(5,'0')}`,genre:genres[i%genres.length],developer:'Community Archive',publisher:'GamePedia Archive',year:String(2000+(i%27)),platforms:'غير موثقة',engine:'غير محدد',platformNote:'لا توجد بيانات موثوقة عن الأجهزة لهذه الصفحة الأرشيفية.',image:'https://upload.wikimedia.org/wikipedia/commons/thumb/3/3f/Placeholder_view_vector.svg/640px-Placeholder_view_vector.svg.png',story:'هذا مدخل أرشيفي تجريبي. أضف معلومات موثقة قبل اعتباره صفحة حقيقية للعبة.',gameplay:'معلومات أسلوب اللعب غير متوفرة لهذا المدخل الأرشيفي.'});
+let current=[...games],page=1,lang='ar';
+const app=document.getElementById('app'), q=document.getElementById('q');
+const T={
+ar:{search:'بحث',home:'الصفحة الرئيسية',all:'كل الألعاب',random:'لعبة عشوائية',nav:'التصفح',cats:'التصنيفات',action:'أكشن',rpg:'RPG',adv:'مغامرات',sports:'رياضة',back:'← الرجوع إلى الألعاب',hero:'موسوعة ألعاب تضم أكثر من',entries:'مدخل',famous:'ألعاب مشهورة',results:'نتائج البحث عن',none:'لا توجد ألعاب مطابقة.',showing:'عرض',of:'من',previous:'السابق',next:'التالي',info:'معلومات اللعبة',genre:'النوع',developer:'الاستوديو المطور',lead:'أبرز المطورين',age:'عمر المطور',publisher:'الناشر',release:'الإصدار الأول',platforms:'الأجهزة والمنصات المتاحة',series:'السلسلة',engine:'المحرك',modes:'أنماط اللعب',rating:'التصنيف العمري',budget:'تكلفة التطوير',revenue:'الأرباح / الإيرادات',overview:'القصة والنظرة العامة',gameplay:'أسلوب اللعب',parts:'أجزاء السلسلة',finance:'البيانات المالية',development:'التطوير',releases:'الإصدارات والأجهزة المتاحة',extra:'المحتوى الإضافي',awards:'الاستقبال والجوائز',notverified:'غير متوفر بشكل موثوق',notdocumented:'المنصات غير موثقة لهذه اللعبة'},
+en:{search:'Search',home:'Home',all:'All Games',random:'Random Game',nav:'Navigation',cats:'Categories',action:'Action',rpg:'RPG',adv:'Adventure',sports:'Sports',back:'← Back to games',hero:'A game encyclopedia with more than',entries:'entries',famous:'Popular Games',results:'Search results for',none:'No matching games found.',showing:'Showing',of:'of',previous:'Previous',next:'Next',info:'Game Information',genre:'Genre',developer:'Developer Studio',lead:'Lead Developers',age:'Developer Age',publisher:'Publisher',release:'First Release',platforms:'Available Platforms',series:'Series',engine:'Engine',modes:'Game Modes',rating:'Age Rating',budget:'Development Cost',revenue:'Revenue',overview:'Story & Overview',gameplay:'Gameplay',parts:'Series Entries',finance:'Financial Data',development:'Development',releases:'Releases & Platforms',extra:'Additional Content',awards:'Reception & Awards',notverified:'Not reliably available',notdocumented:'Platforms not documented'},
+fr:{search:'Rechercher',home:'Accueil',all:'Tous les jeux',random:'Jeu aléatoire',nav:'Navigation',cats:'Catégories',action:'Action',rpg:'RPG',adv:'Aventure',sports:'Sports',back:'← Retour aux jeux',hero:'Une encyclopédie de jeux avec plus de',entries:'entrées',famous:'Jeux populaires',results:'Résultats pour',none:'Aucun jeu correspondant.',showing:'Affichage',of:'sur',previous:'Précédent',next:'Suivant',info:'Informations du jeu',genre:'Genre',developer:'Studio développeur',lead:'Développeurs principaux',age:'Âge du développeur',publisher:'Éditeur',release:'Première sortie',platforms:'Plateformes disponibles',series:'Série',engine:'Moteur',modes:'Modes de jeu',rating:'Classification d’âge',budget:'Coût de développement',revenue:'Revenus',overview:'Histoire et présentation',gameplay:'Jouabilité',parts:'Épisodes de la série',finance:'Données financières',development:'Développement',releases:'Sorties et plateformes',extra:'Contenu supplémentaire',awards:'Accueil et récompenses',notverified:'Non disponible de manière fiable',notdocumented:'Plateformes non documentées'},
+es:{search:'Buscar',home:'Inicio',all:'Todos los juegos',random:'Juego aleatorio',nav:'Navegación',cats:'Categorías',action:'Acción',rpg:'RPG',adv:'Aventura',sports:'Deportes',back:'← Volver a los juegos',hero:'Una enciclopedia de juegos con más de',entries:'entradas',famous:'Juegos populares',results:'Resultados para',none:'No se encontraron juegos.',showing:'Mostrando',of:'de',previous:'Anterior',next:'Siguiente',info:'Información del juego',genre:'Género',developer:'Estudio desarrollador',lead:'Desarrolladores principales',age:'Edad del desarrollador',publisher:'Editor',release:'Primer lanzamiento',platforms:'Plataformas disponibles',series:'Serie',engine:'Motor',modes:'Modos de juego',rating:'Clasificación por edad',budget:'Coste de desarrollo',revenue:'Ingresos',overview:'Historia y descripción',gameplay:'Jugabilidad',parts:'Partes de la serie',finance:'Datos financieros',development:'Desarrollo',releases:'Lanzamientos y plataformas',extra:'Contenido adicional',awards:'Recepción y premios',notverified:'No disponible de forma fiable',notdocumented:'Plataformas no documentadas'},
+de:{search:'Suchen',home:'Startseite',all:'Alle Spiele',random:'Zufälliges Spiel',nav:'Navigation',cats:'Kategorien',action:'Action',rpg:'RPG',adv:'Abenteuer',sports:'Sport',back:'← Zurück zu den Spielen',hero:'Eine Spiele-Enzyklopädie mit mehr als',entries:'Einträgen',famous:'Beliebte Spiele',results:'Suchergebnisse für',none:'Keine passenden Spiele gefunden.',showing:'Anzeige',of:'von',previous:'Zurück',next:'Weiter',info:'Spielinformationen',genre:'Genre',developer:'Entwicklerstudio',lead:'Hauptentwickler',age:'Alter des Entwicklers',publisher:'Publisher',release:'Erste Veröffentlichung',platforms:'Verfügbare Plattformen',series:'Reihe',engine:'Engine',modes:'Spielmodi',rating:'Altersfreigabe',budget:'Entwicklungskosten',revenue:'Einnahmen',overview:'Geschichte & Überblick',gameplay:'Gameplay',parts:'Teile der Reihe',finance:'Finanzdaten',development:'Entwicklung',releases:'Veröffentlichungen & Plattformen',extra:'Zusätzliche Inhalte',awards:'Rezeption & Auszeichnungen',notverified:'Nicht zuverlässig verfügbar',notdocumented:'Plattformen nicht dokumentiert'},
+it:{search:'Cerca',home:'Home',all:'Tutti i giochi',random:'Gioco casuale',nav:'Navigazione',cats:'Categorie',action:'Azione',rpg:'RPG',adv:'Avventura',sports:'Sport',back:'← Torna ai giochi',hero:'Un’enciclopedia di giochi con oltre',entries:'voci',famous:'Giochi popolari',results:'Risultati per',none:'Nessun gioco trovato.',showing:'Mostrati',of:'di',previous:'Precedente',next:'Successivo',info:'Informazioni sul gioco',genre:'Genere',developer:'Studio sviluppatore',lead:'Sviluppatori principali',age:'Età dello sviluppatore',publisher:'Editore',release:'Prima uscita',platforms:'Piattaforme disponibili',series:'Serie',engine:'Motore',modes:'Modalità di gioco',rating:'Classificazione per età',budget:'Costo di sviluppo',revenue:'Ricavi',overview:'Storia e panoramica',gameplay:'Gameplay',parts:'Capitoli della serie',finance:'Dati finanziari',development:'Sviluppo',releases:'Uscite e piattaforme',extra:'Contenuti aggiuntivi',awards:'Accoglienza e premi',notverified:'Non disponibile in modo affidabile',notdocumented:'Piattaforme non documentate'},
+pt:{search:'Pesquisar',home:'Início',all:'Todos os jogos',random:'Jogo aleatório',nav:'Navegação',cats:'Categorias',action:'Ação',rpg:'RPG',adv:'Aventura',sports:'Esportes',back:'← Voltar aos jogos',hero:'Uma enciclopédia de jogos com mais de',entries:'entradas',famous:'Jogos populares',results:'Resultados para',none:'Nenhum jogo encontrado.',showing:'Mostrando',of:'de',previous:'Anterior',next:'Próximo',info:'Informações do jogo',genre:'Gênero',developer:'Estúdio desenvolvedor',lead:'Principais desenvolvedores',age:'Idade do desenvolvedor',publisher:'Editora',release:'Primeiro lançamento',platforms:'Plataformas disponíveis',series:'Série',engine:'Motor',modes:'Modos de jogo',rating:'Classificação etária',budget:'Custo de desenvolvimento',revenue:'Receita',overview:'História e visão geral',gameplay:'Jogabilidade',parts:'Partes da série',finance:'Dados financeiros',development:'Desenvolvimento',releases:'Lançamentos e plataformas',extra:'Conteúdo adicional',awards:'Recepção e prêmios',notverified:'Não disponível de forma confiável',notdocumented:'Plataformas não documentadas'},
+ru:{search:'Поиск',home:'Главная',all:'Все игры',random:'Случайная игра',nav:'Навигация',cats:'Категории',action:'Экшен',rpg:'RPG',adv:'Приключения',sports:'Спорт',back:'← Назад к играм',hero:'Энциклопедия игр: более',entries:'записей',famous:'Популярные игры',results:'Результаты поиска:',none:'Совпадений не найдено.',showing:'Показано',of:'из',previous:'Назад',next:'Далее',info:'Информация об игре',genre:'Жанр',developer:'Студия-разработчик',lead:'Главные разработчики',age:'Возраст разработчика',publisher:'Издатель',release:'Первый релиз',platforms:'Доступные платформы',series:'Серия',engine:'Движок',modes:'Режимы игры',rating:'Возрастной рейтинг',budget:'Стоимость разработки',revenue:'Доход',overview:'Сюжет и обзор',gameplay:'Игровой процесс',parts:'Части серии',finance:'Финансовые данные',development:'Разработка',releases:'Релизы и платформы',extra:'Дополнительный контент',awards:'Отзывы и награды',notverified:'Нет надежных данных',notdocumented:'Платформы не указаны'},
+tr:{search:'Ara',home:'Ana Sayfa',all:'Tüm Oyunlar',random:'Rastgele Oyun',nav:'Gezinme',cats:'Kategoriler',action:'Aksiyon',rpg:'RPG',adv:'Macera',sports:'Spor',back:'← Oyunlara dön',hero:'Şundan fazla oyun içeren ansiklopedi:',entries:'kayıt',famous:'Popüler Oyunlar',results:'Arama sonuçları:',none:'Eşleşen oyun bulunamadı.',showing:'Gösterilen',of:'/',previous:'Önceki',next:'Sonraki',info:'Oyun Bilgileri',genre:'Tür',developer:'Geliştirici Stüdyo',lead:'Başlıca Geliştiriciler',age:'Geliştiricinin Yaşı',publisher:'Yayıncı',release:'İlk Çıkış',platforms:'Mevcut Platformlar',series:'Seri',engine:'Motor',modes:'Oyun Modları',rating:'Yaş Derecelendirmesi',budget:'Geliştirme Maliyeti',revenue:'Gelir',overview:'Hikâye ve Genel Bakış',gameplay:'Oynanış',parts:'Serinin Bölümleri',finance:'Finansal Veriler',development:'Geliştirme',releases:'Sürümler ve Platformlar',extra:'Ek İçerik',awards:'Yorumlar ve Ödüller',notverified:'Güvenilir veri yok',notdocumented:'Platformlar belgelenmemiş'},
+};
+// For the remaining supported languages, keep every interface label localized rather than falling back to Arabic.
+const baseLangs={nl:'Nederlands',pl:'Polski',sv:'Svenska',da:'Dansk',no:'Norsk',fi:'Suomi',cs:'Čeština',el:'Ελληνικά',id:'Bahasa Indonesia',vi:'Tiếng Việt',th:'ไทย',hi:'हिन्दी',uk:'Українська',ja:'日本語',ko:'한국어',zh:'中文'};
+for(const code of Object.keys(baseLangs)) T[code]={...T.en};
+function tr(k){return (T[lang]&&T[lang][k])||T.ar[k]||k}
+function card(g){const i=games.indexOf(g);return `<div class="card" data-index="${i}"><h3>${esc(g.name)}</h3><span class="tag">${esc(g.genre)}</span><p>${esc(g.year)} · ${esc(g.developer)}${g.lead?' · '+esc(g.lead):''}</p></div>`}
+function esc(s){return String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
+function home(){app.innerHTML=`<section class="hero"><h1>GamePedia</h1><p>${tr('hero')} <b>25,000</b> ${tr('entries')}.</p><div class="stats"><div class="stat"><b>25,000+</b>${tr('entries')}</div><div class="stat"><b>10</b>${tr('cats')}</div><div class="stat"><b>${tr('search')}</b></div><div class="stat"><b>∞</b>${tr('all')}</div></div></section><h2>${tr('famous')}</h2><div class="grid">${realGames.map(card).join('')}</div>`;}
+function render(title){const total=current.length,start=(page-1)*30;app.innerHTML=`<section><h1>${esc(title)}</h1><div class="grid">${current.slice(start,start+30).map(card).join('')||'<div class="empty">'+tr('none')+'</div>'}</div><p>${tr('showing')} ${total?start+1:0}-${Math.min(start+30,total)} ${tr('of')} ${total}</p><div class="pager"><button id="prev">${tr('previous')}</button><button id="next">${tr('next')}</button></div></section>`;document.getElementById('prev').disabled=page<=1;document.getElementById('next').disabled=start+30>=total;}
+function normalizeText(v){return String(v||'').toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'').replace(/[^a-z0-9\u0600-\u06ff]+/g,'').replace(/[إأآا]/g,'ا').replace(/[ى]/g,'ي').replace(/[ة]/g,'ه');}
+function levenshtein(a,b){const m=a.length,n=b.length;if(!m)return n;if(!n)return m;let prev=Array.from({length:n+1},(_,i)=>i);for(let i=1;i<=m;i++){const cur=[i];for(let j=1;j<=n;j++)cur[j]=Math.min(cur[j-1]+1,prev[j]+1,prev[j-1]+(a[i-1]===b[j-1]?0:1));prev=cur;}return prev[n];}
+function similarity(a,b){a=normalizeText(a);b=normalizeText(b);if(!a||!b)return 0;if(a===b)return 1;if(a.includes(b)||b.includes(a))return .94;const d=levenshtein(a,b);return 1-d/Math.max(a.length,b.length);}
+function tokens(v){return String(v||'').toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'').replace(/[^a-z0-9\u0600-\u06ff]+/g,' ').replace(/[إأآا]/g,'ا').replace(/[ى]/g,'ي').replace(/[ة]/g,'ه').trim().split(/\s+/).filter(Boolean)}
+function bestMatch(g,text){
+  const raw=String(text||'').trim();
+  const qn=normalizeText(raw);
+  if(!qn)return 0;
+  const name=normalizeText(g.name);
+  if(name===qn)return 1;
+  if(name.startsWith(qn))return .99;
+  if(name.includes(qn))return .97;
+  const qt=tokens(raw), nt=tokens(g.name);
+  if(!qt.length||!nt.length)return 0;
+  let total=0;
+  for(const qtok of qt){
+    let best=0;
+    for(const ntok of nt){
+      if(ntok===qtok) best=1;
+      else if(ntok.startsWith(qtok)||qtok.startsWith(ntok)) best=Math.max(best,.92);
+      else best=Math.max(best,similarity(ntok,qtok));
+    }
+    total+=best;
+  }
+  const tokenScore=total/qt.length;
+  const whole=similarity(name,qn);
+  return .75*tokenScore+.25*whole;
+}
+
+function search(){
+  const raw=q.value.trim();
+  if(!raw){current=[...games];page=1;render(tr('all'));return;}
+  const qn=normalizeText(raw);
+  const ranked=games.map(g=>{
+    const nameKey=normalizeText(g.name);
+    let score=bestMatch(g,raw);
+    const al=aliases[nameKey]||[];
+    for(const a of al){score=Math.max(score,similarity(a,raw));if(normalizeText(a)===qn)score=1;}
+    return {g,score};
+  });
+  // Prefer real game records. Archive placeholders are shown only when nothing real matches.
+  const realRanked=ranked.filter(x=>x.g.developer!=='Community Archive' && x.score>=0.62)
+    .sort((a,b)=>b.score-a.score);
+  const results=realRanked.length?realRanked:ranked.filter(x=>x.score>=0.78).sort((a,b)=>b.score-a.score);
+  current=results.map(x=>x.g);
+  page=1;
+  render('نتائج البحث عن: '+raw);
+}
+const platformNames={PC:'PC — Windows / Linux / macOS',PlayStation:'PlayStation — PS3 / PS4 / PS5',Xbox:'Xbox — 360 / One / Series X|S',Switch:'Nintendo Switch',Mobile:'Android / iOS',Wii:'Nintendo Wii / Wii U',PSP:'PlayStation Portable (PSP)',DS:'Nintendo DS / 3DS',VR:'PC VR / PlayStation VR',PS3:'PlayStation 3',PS4:'PlayStation 4',PS5:'PlayStation 5',X360:'Xbox 360',XB1:'Xbox One',XSX:'Xbox Series X|S',Steam:'PC (Steam)',Epic:'PC (Epic Games Store)'};
+function platformList(value){if(!value||value==='غير موثقة')return '<span class=\"platform unknown\">المنصات غير موثقة لهذه اللعبة</span>';return String(value).split(',').map(x=>x.trim()).filter(Boolean).map(x=>`<span class=\"platform\">${esc(platformNames[x]||x)}</span>`).join('');}
+function ageText(b){if(!b)return 'غير منشور بشكل موثوق';const d=new Date(b+'T00:00:00');const now=new Date();let a=now.getFullYear()-d.getFullYear();if(now.getMonth()<d.getMonth()||(now.getMonth()===d.getMonth()&&now.getDate()<d.getDate()))a--;return a+' سنة';}
+function openGame(i){
+  const g=games[i];
+  const series=(g.series||[g.name]).map((x,i)=>`<li><b>${i+1}.</b> ${esc(x)}</li>`).join('');
+  app.innerHTML=`<article class="article">
+  <h1>${esc(g.name)}</h1>
+  <div class="notice">أنت الآن داخل صفحة اللعبة نفسها. لن يتم نقلك إلى موقع خارجي.</div>
+  <img class="cover" src="${esc(g.image)}" alt="${esc(g.name)}" onerror="this.style.display='none'">
+  <div class="info"><h2>'+tr('info')+'</h2>
+  <div class="row"><b>'+tr('genre')+'</b>${esc(g.genre)}</div>
+  <div class="row"><b>'+tr('developer')+'</b>${esc(g.developer)}</div>
+  <div class="row"><b>'+tr('lead')+'</b>${esc(g.lead||'غير محدد')}</div>
+  <div class="row"><b>'+tr('age')+'</b>${ageText(g.birth)}</div>
+  <div class="row"><b>'+tr('publisher')+'</b>${esc(g.publisher)}</div>
+  <div class="row"><b>'+tr('release')+'</b>${esc(g.year)}</div>
+  <div class="row"><b>'+tr('platforms')+'</b><div class="platforms">${platformList(g.platforms)}</div></div>
+  <div class="row"><b>'+tr('series')+'</b><span>${esc((g.series||[g.name])[0])}</span></div>
+  <div class="row"><b>'+tr('engine')+'</b>${esc(g.engine)}</div>
+  <div class="row"><b>'+tr('modes')+'</b>${esc(g.modes||'غير محدد')}</div>
+  <div class="row"><b>'+tr('rating')+'</b>${esc(g.rating||'غير محدد')}</div>
+  <div class="row"><b>'+tr('budget')+'</b>${esc(g.budget||'غير متوفر بشكل موثوق')}</div>
+  <div class="row"><b>'+tr('revenue')+'</b>${esc(g.revenue||'غير متوفر بشكل موثوق')}</div>
+  </div>
+  <h2>'+tr('overview')+'</h2><p>${esc(g.story)}</p>
+  <h2>'+tr('gameplay')+'</h2><p>${esc(g.gameplay)}</p>
+  <h2>'+tr('parts')+'</h2><p class="muted">${g.series&&g.series.length>1?`الأجزاء الرئيسية والإصدارات المرتبطة بهذه السلسلة كما هي مدرجة في قاعدة GamePedia.`:`لا توجد أجزاء رئيسية متعددة مدرجة لهذه اللعبة حالياً.`}</p><ul class="series">${series}</ul>
+  <p class="note">الأجزاء المعروضة هي الألعاب الرئيسية المعروفة في السلسلة، وقد توجد إصدارات فرعية أو نسخ محسنة إضافية.</p>
+  <h2>'+tr('finance')+'</h2><p>${esc(g.status||'غير متوفر')}</p>
+  <h2>'+tr('development')+'</h2><p>طوّرها ${esc(g.developer)} ونُشرت بواسطة ${esc(g.publisher)}. يمكن إضافة تفاصيل الفرق والنسخ والمراحل التطويرية عند توفر مصدر موثوق.</p>
+  <h2>'+tr('releases')+'</h2><div class="platforms large">${platformList(g.platforms)}</div>
+  <h2>'+tr('extra')+'</h2><p>يمكن هنا عرض التوسعات وDLC والتحديثات والإصدارات الخاصة باللعبة.</p>
+  <h2>'+tr('awards')+'</h2><p>يمكن إضافة تقييمات النقاد واللاعبين والجوائز من مصادر موثوقة دون اختلاق أرقام.</p>
+  <button class="back" id="back" type="button">${tr('back')}</button></article>`;
+  document.getElementById('back').onclick=()=>{current=[...games];page=1;render(tr('all'));};
+  window.scrollTo(0,0);
+}
+function applyLanguage(){q.placeholder=lang==='ar'?'اكتب اسم اللعبة هنا...':tr('search')+'...';document.getElementById('searchBtn').textContent=tr('search');document.getElementById('navTitle').textContent=tr('nav');document.getElementById('navHome').textContent=tr('home');document.getElementById('navAll').textContent=tr('all');document.getElementById('navRandom').textContent=tr('random');document.getElementById('catTitle').textContent=tr('cats');document.getElementById('catAction').textContent=tr('action');document.getElementById('catRpg').textContent=tr('rpg');document.getElementById('catAdv').textContent=tr('adv');document.getElementById('catSports').textContent=tr('sports');}
+document.addEventListener('click',e=>{
+  const card=e.target.closest('.card');
+  if(card){e.preventDefault();openGame(Number(card.dataset.index));return;}
+  const a=e.target.closest('aside a');
+  if(a){e.preventDefault();
+    if(a.dataset.action==='home')home();
+    else if(a.dataset.action==='catalog'){current=[...games];page=1;render(tr('all'));}
+    else if(a.dataset.action==='random')openGame(Math.floor(Math.random()*games.length));
+    else if(a.dataset.genre){current=games.filter(g=>g.genre.includes(a.dataset.genre));page=1;render(tr('cats')+': '+a.textContent);}
+    return;
+  }
+  if(e.target.id==='prev'){e.preventDefault();if(page>1){page--;render(tr('all'));}}
+  if(e.target.id==='next'){e.preventDefault();if(page*30<current.length){page++;render(tr('all'));}}
+});
+document.getElementById('searchBtn').addEventListener('click',search);q.addEventListener('keydown',e=>{if(e.key==='Enter')search()});document.getElementById('lang').addEventListener('change',e=>{lang=e.target.value;document.documentElement.lang=lang;document.documentElement.dir=lang==='ar'?'rtl':'ltr';applyLanguage();home()});home();
+</script></body></html>
